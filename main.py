@@ -36,9 +36,9 @@ def about():
     return render_template('about.html')
 
 
-@app.route('/rooms', methods=['GET', 'POST'])
+@app.route('/services', methods=['GET', 'POST'])
 def rooms():
-    return render_template('rooms.html')
+    return render_template('services.html')
 @app.route('/executive', methods=['GET', 'POST'])
 def executive():
     return render_template('executive.html')
