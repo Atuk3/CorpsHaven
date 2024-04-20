@@ -1,5 +1,6 @@
 # CorpsHaven
 
+![alt text](<CorpsHaven Github Cover.png>)
 bg
 Target Audience Analysis:
 Demographics: Age (mostly 22-30), education level (recent graduates), income level (entry-level salaries).
