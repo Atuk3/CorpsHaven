@@ -72,6 +72,15 @@
               <li><a href="/services">Services</a></li>
               <li><a href="/about">About</a></li>
               <li><a href="/contact">Contact Us</a></li>
+              <li class="has-children">
+                <a>Account</a>
+                <ul class="dropdown">
+                  <li><a href="/login">Sign In</a></li>
+                  <li><a href="/register">Register</a></li>
+                  
+                </ul>
+              </li>
+              
             </ul>
 
             <a
@@ -611,11 +620,12 @@ Together, "Corps Haven" communicates the concept of a trusted and supportive env
       </div>
     </div>
 
-    <script src="/static/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="/static/assets/js/tiny-slider.js"></script>
-    <script src="/static/assets/js/aos.js"></script>
-    <script src="/static/assets/js/navbar.js"></script>
-    <script src="/static/assets/js/counter.js"></script>
-    <script src="/static/assets/js/custom.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/tiny-slider.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/navbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/counter.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/custom.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/register.js') }}"></script>
   </body>
 </html>

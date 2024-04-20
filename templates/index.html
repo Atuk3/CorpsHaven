@@ -53,24 +53,19 @@
               class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
             >
               <li class="active"><a href="/home">Home</a></li>
-              <!-- <li class="has-children">
-                <a href="properties.html">Properties</a>
-                <ul class="dropdown">
-                  <li><a href="#">Buy Property</a></li>
-                  <li><a href="#">Sell Property</a></li>
-                  <li class="has-children">
-                    <a href="#">Dropdown</a>
-                    <ul class="dropdown">
-                      <li><a href="#">Sub Menu One</a></li>
-                      <li><a href="#">Sub Menu Two</a></li>
-                      <li><a href="#">Sub Menu Three</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li> -->
+            
               <li><a href="/services">Services</a></li>
               <li><a href="/about">About</a></li>
               <li><a href="/contact">Contact Us</a></li>
+              <li class="has-children">
+                <a>Account</a>
+                <ul class="dropdown">
+                  <li><a href="/login">Sign In</a></li>
+                  <li><a href="/register">Register</a></li>
+                  
+                </ul>
+              </li>
+              
             </ul>
 
             <a
@@ -94,11 +89,11 @@
         ></div>
         <div
           class="img overlay"
-          style="background-image: url('/static/assets/images/hero_bg_2.jpg')"
+          style="background-image: url('/static/assets/images/hero2.jpeg')"
         ></div>
         <div
           class="img overlay"
-          style="background-image: url('/static/assets/images/hero_bg_1.jpg')"
+          style="background-image: url('/static/assets/images/hero3.jpg')"
         ></div>
       </div>
 
@@ -1033,11 +1028,12 @@
       </div>
     </div>
 
-    <script src="/static/assets/js/bootstrap.bundle.min.js"></script>
-    <script src="/static/assets/js/tiny-slider.js"></script>
-    <script src="/static/assets/js/aos.js"></script>
-    <script src="/static/assets/js/navbar.js"></script>
-    <script src="/static/assets/js/counter.js"></script>
-    <script src="/static/assets/js/custom.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/tiny-slider.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/navbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/counter.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/custom.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/register.js') }}"></script>
   </body>
 </html>

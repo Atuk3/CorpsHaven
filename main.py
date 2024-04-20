@@ -91,9 +91,7 @@ def test():
 def exclusive():
     return render_template('exclusive.html')
 
-@app.route('/standard', methods=['GET', 'POST'])
-def standard():
-    return render_template('standard.html')
+
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -101,11 +99,14 @@ def contact():
     
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('dashboard.html')
+    return render_template('login.html')
 
-@app.route('/signup', methods=['GET', 'POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def signup():
-    return render_template('signup.html')
+    return render_template('register.html')
+@app.route('/recovery', methods=['GET', 'POST'])
+def standard():
+    return render_template('recovery.html')
 
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
