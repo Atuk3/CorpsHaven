@@ -2,8 +2,10 @@
 import json
 import os
 import io
-from flask import Flask,render_template, request, jsonify,flash,url_for,redirect,session,make_response
+import psycopg2
 
+from flask import Flask,render_template, request, jsonify,flash,url_for,redirect,session,make_response
+from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import FileField, SubmitField
 from werkzeug.utils import secure_filename
@@ -16,8 +18,50 @@ app=Flask(__name__)
 # Set Flask application configurations
 app.config['SECRET_KEY']='david'
 app.config['UPLOAD_FOLDER']='static/files'
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres://avnadmin:AVNS__KRy1EHWDbCl4_XPVlF@corpshaven1-owamagbedavid-db8a.d.aivencloud.com:24798/defaultdb?sslmode=require'
+db=SQLAlchemy(app)
 
 
+# # Define User model
+# class User(db.Model):
+#     __tablename__ = 'users'
+
+#     user_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+#     username = db.Column(db.String(100), unique=True, nullable=False)
+#     email = db.Column(db.String(100), unique=True, nullable=False)
+#     password = db.Column(db.String(100), nullable=False)
+#     role = db.Column(db.Enum('corper', 'property owner', 'admin'), nullable=False)
+
+# # Define Property model
+# class Property(db.Model):
+#     __tablename__ = 'properties'
+
+#     property_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+#     owner_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
+#     title = db.Column(db.String(255), nullable=False)
+#     description = db.Column(db.Text, nullable=False)
+#     location = db.Column(db.String(255), nullable=False)
+#     rent_amount = db.Column(db.Numeric(10, 2), nullable=False)
+#     amenities = db.Column(db.Text, nullable=True)
+
+# # Define InspectionRequest model
+# class InspectionRequest(db.Model):
+#     __tablename__ = 'inspection_requests'
+
+#     request_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+#     property_id = db.Column(db.Integer, db.ForeignKey('properties.property_id'), nullable=False)
+#     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
+#     request_datetime = db.Column(db.DateTime, nullable=False)
+
+# # Define Review model
+# class Review(db.Model):
+#     __tablename__ = 'reviews'
+
+#     review_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+#     property_id = db.Column(db.Integer, db.ForeignKey('properties.property_id'), nullable=False)
+#     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
+#     rating = db.Column(db.Integer, nullable=False)
+#     comment = db.Column(db.Text, nullable=True)
 
 # Define the homepage route
 @app.route('/', methods=['GET', 'POST'])
@@ -37,11 +81,11 @@ def about():
 
 
 @app.route('/services', methods=['GET', 'POST'])
-def rooms():
+def services():
     return render_template('services.html')
-@app.route('/executive', methods=['GET', 'POST'])
-def executive():
-    return render_template('executive.html')
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    return "testing 123"
 
 @app.route('/exclusive', methods=['GET', 'POST'])   
 def exclusive():
