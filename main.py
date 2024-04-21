@@ -87,9 +87,9 @@ def services():
 def test():
     return "testing 123"
 
-@app.route('/exclusive', methods=['GET', 'POST'])   
+@app.route('/singleproperty', methods=['GET', 'POST'])   
 def exclusive():
-    return render_template('exclusive.html')
+    return render_template('property-single.html')
 
 
 
