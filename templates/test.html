@@ -136,75 +136,31 @@
   {% endwith %}
     <div class="container" style="color: black;">
         <div class="row">
-            <form id="myForm" style="border:1px solid #ccc" method="post">
-                
-                  <h5 style="text-align: center;">Please fill in this form to create an account.</h5>
-                  <hr>
-              
-                  <label for="first_name" style="color:black;"><b>First Name</b></label>
-                 <input type="text" placeholder="Enter First Name" name="first_name" required>
-        
-                <label for="last_name" style="color:black;"><b>Last Name</b></label>
-                <input type="text" placeholder="Enter Last Name" name="last_name" required>
-                    
-                  <label for="email"><b>Email</b></label>
-                  <input type="text" placeholder="Enter Email" name="email" required>
-                  <label for="phonenumber" style="color:black;"><b>Phone Number</b></label>
-        <input type="text" placeholder="Enter Phone Number" name="phonenumber" required>
-        
-           
-        <label for="year" style="color:black;"><b>Service Year</b></label>
-        <input type="text"placeholder="Year of service. Ex: 2024" name="year" required>
-        <span id="yearError" style="color: red;"></span><br>
-        <div class="radio-container" style="display: flex; align-items: center;">
-            <label for="batch" style="color:black; margin-right: 10px;">Batch:</label><br><br>
-            <input type="radio" id="batch_A" name="batch" value="A" style="margin-right:5px;">
-            <label for="batch_A" style="color:black; margin-right: 10px;">A</label><br>
-            <input type="radio" id="batch_B" name="batch" value="B" style="margin-right:5px;">
-            <label for="batch_B" style="color:black; margin-right: 10px;">B</label><br>
-            <input type="radio" id="batch_C" name="batch" value="C" style="margin-right:5px;">
-            <label for="batch_C" style="color:black; margin-right: 10px;">C</label><br>
-            <input type="radio" id="batch_D" name="batch" value="D" style="margin-right:5px;">
-            <label for="batch_D" style="color:black;">D</label><br><br>
+          <form method="post" style="border:1px solid #ccc">
+            <h3 align="center">Login</h3>
+            <div class="imgcontainer">
+        <img src="/static/assets/images/avatar1.jpg" alt="Avatar" class="avatar">
+      </div>
+      
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" />
+            </div>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label><br><br>
+            <br />
+            <button type="submit" class="btn btn-primary">Login</button>
+            <div style="display:flex; justify-content: space-between;">
+              <p>Don't have an account? <a href="/register" style="color:dodgerblue">Register Now!</a></p>
+              <p>Forgotten Password? <a href="/recovery" style="color:dodgerblue">Recover it.</a></p>
+          </div>
         </div>
-        
-        <div class="radio-container" style="display: flex; align-items: center;">
-            <label for="stream" style="color:black; margin-right: 10px;">Stream:</label>
-            <input type="radio" id="stream_1" name="stream" value="1" style="margin-right: 5px;">
-            <label for="stream_1" style="color:black; margin-right: 20px;">1</label>
-            <input type="radio" id="stream_2" name="stream" value="2" style="margin-right: 5px;">
-            <label for="stream_2" style="color:black;">2</label>
-        </div><br>
-        
-     
-       
-                  <label for="psw"><b>Password</b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" required>
-              
-                  <label for="confirm_password"><b>Confirm password</b></label>
-                  <input type="password" placeholder="Confirm password" name="confirm_password" required>
-                  <div class="radio-container">
-                  <label for="account_type">Account Type:</label><br>
-                  <input type="radio" id="individual" name="account_type" value="individual">
-                  <label for="individual">Individual (Searching for Property)</label><br>
-                  <input type="radio" id="property_owner" name="account_type" value="property_owner">
-        <label for="property_owner">Property Owner</label><br>
-                  
-        
-       
-        </div><br>
-              
-                
-              
-                  <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a> and agree that we and our selected partners may contact you with relevant offers and services.</p>
-                 
-                  <div class="clearfix">
-                    
-                    <button type="submit" class="signupbtn">Sign Up</button>
-                  </div>
-                  <p>Already have an account? <a href="/login" style="color:dodgerblue">Click here to sign in</a>.</p>
-                </div>
-              </form>
+        </form>
         </div>
     </div>
 
