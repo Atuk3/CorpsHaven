@@ -3,6 +3,7 @@ import json
 import os
 import io
 import psycopg2
+import datetime
 
 from flask import Flask,render_template, request, jsonify,flash,url_for,redirect,session,make_response
 from flask_sqlalchemy import SQLAlchemy
@@ -21,7 +22,17 @@ app.config['UPLOAD_FOLDER']='static/files'
 app.config['SQLALCHEMY_DATABASE_URI']='postgresql://postgres://avnadmin:AVNS__KRy1EHWDbCl4_XPVlF@corpshaven1-owamagbedavid-db8a.d.aivencloud.com:24798/defaultdb?sslmode=require'
 db=SQLAlchemy(app)
 
-
+# class User(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     first_name = db.Column(db.String(50), nullable=False)
+#     last_name = db.Column(db.String(50), nullable=False)
+#     email = db.Column(db.String(100),unique=True, nullable=False)
+#     phone_number = db.Column(db.Integer,unique=True, nullable=False)
+#     service_year = db.Column(db.Integer, nullable=False)
+#     batch = db.Column(db.String(1), nullable=False)
+#     stream = db.Column(db.Integer, nullable=False)
+#     password = db.Column(db.String(100), nullable=False)
+#     account_type = db.Column(db.String(20), nullable=False)"
 # # Define User model
 # class User(db.Model):
 #     __tablename__ = 'users'
@@ -83,9 +94,7 @@ def about():
 @app.route('/services', methods=['GET', 'POST'])
 def services():
     return render_template('services.html')
-@app.route('/test', methods=['GET', 'POST'])
-def test():
-    return "testing 123"
+
 
 @app.route('/singleproperty', methods=['GET', 'POST'])   
 def exclusive():
@@ -99,11 +108,70 @@ def contact():
     
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if request.method == 'POST':
+        email = request.form.get("email")
+        if len(email) > 4:
+            flash('First name must be greater than 1 character.', category='error')
+    
+    
+
     return render_template('login.html')
 
 @app.route('/register', methods=['GET', 'POST'])
-def signup():
+def register():
+    
+    if request.method == 'POST':
+            first_name=request.form.get("first_name")
+            last_name=request.form.get("last_name")
+            email = request.form.get("email")
+            phone_number = request.form.get("phonenumber")
+            year = request.form.get("year")
+            batch = request.form.get("batch")
+            stream = request.form.get("stream")
+            password = request.form.get("psw")
+            confirm_password = request.form.get("confirm_password")
+            account_type = request.form.get("account_type")
+                
+                #Validation
+            errors=[]
+            if len(email) < 4:
+                   flash('Email must be greater than 3 characters.') 
+            elif not (email.endswith('@gmail.com') or email.endswith('@yahoo.com') or email.endswith('@outlook.com')):
+                flash("Email must be either @gmail.com, @yahoo.com, or @outlook.com", "error")
+                
+ 
+            elif len(first_name) < 2:
+                flash('First name must be greater than 1 character.', category='error')
+            elif len(last_name) < 2:
+                flash('Last name must be greater than 1 character.', category='error')
+            elif len(phone_number) != 11 or not phone_number.isdigit():
+                flash("Phone number must be 11 digits.", "error")
+               
+            current_year = datetime.datetime.now().year
+            if int(year) < current_year - 1 or int(year) > current_year:
+                flash(f"Service year must be between {current_year - 1} and {current_year}", "error")
+                
+            
+            elif len(password) < 8:
+                flash('Password must be at least 8 characters.', category='error')
+            elif confirm_password != password:
+                 flash('Passwords don\'t match.', category='error')
+            elif not account_type:
+                flash("Please select an account type.", "error")
+               
+            elif not batch:
+                flash("Please select a batch.", "error")
+                
+            elif not stream:
+                flash("Please select a stream.", "error")
+                
+            else:
+                 flash('Account created!', category='success')
+                 return redirect(url_for('register'))
+        
+           
     return render_template('register.html')
+
 @app.route('/recovery', methods=['GET', 'POST'])
 def standard():
     return render_template('recovery.html')
@@ -111,5 +179,12 @@ def standard():
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
     return render_template('dashboard.html')
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    if request.method == 'POST':
+        email = request.form.get("email")
+        if len(email) > 4:
+            flash('First name must be greater than 1 character.', category='error')
+    return render_template('test.html',category='error')
 if __name__ == '__main__':
     app.run(debug=True)

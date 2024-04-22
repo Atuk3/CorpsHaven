@@ -10375,3 +10375,8 @@ nav[aria-label="breadcrumb"] li:before {
       .site-footer .social li a:hover {
         background: #00204a;
         color: #fff; }
+        .logo-image {
+          width: 40px; /* Adjust as needed */
+          height: auto; /* Maintain aspect ratio */
+          margin-right: 10px; /* Optional: Add spacing between logo and text */
+        }
