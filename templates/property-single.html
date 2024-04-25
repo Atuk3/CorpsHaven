@@ -21,13 +21,13 @@
       href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/static/assets/fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="/static/assets/fonts/flaticon/font/flaticon.css" />
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css" />
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="/static/assets/css/tiny-slider.css" />
+    <link rel="stylesheet" href="/static/assets/css/aos.css" />
+    <link rel="stylesheet" href="/static/assets/css/style.css" />
 
-    <link rel="stylesheet" href="css/tiny-slider.css" />
-    <link rel="stylesheet" href="css/aos.css" />
-    <link rel="stylesheet" href="css/style.css" />
 
     <title>
       Property &mdash; Free Bootstrap 5 Website Template by Untree.co
@@ -54,7 +54,7 @@
             >
               <li><a href="index.html">Home</a></li>
               <li class="has-children">
-                <a href="properties.html">Properties</a>
+                <a href="/properties">Properties</a>
                 <ul class="dropdown">
                   <li><a href="#">Buy Property</a></li>
                   <li><a href="#">Sell Property</a></li>
@@ -105,7 +105,7 @@
               <ol class="breadcrumb text-center justify-content-center">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item">
-                  <a href="properties.html">Properties</a>
+                  <a href="/properties">Properties</a>
                 </li>
                 <li
                   class="breadcrumb-item active text-white-50"
@@ -126,9 +126,9 @@
           <div class="col-lg-7">
             <div class="img-property-slide-wrap">
               <div class="img-property-slide">
-                <img src="images/img_1.jpg" alt="Image" class="img-fluid" />
-                <img src="images/img_2.jpg" alt="Image" class="img-fluid" />
-                <img src="images/img_3.jpg" alt="Image" class="img-fluid" />
+                <img src="/static/assets/images/img_1.jpg" alt="Image" class="img-fluid" />
+                <img src="/static/assets/images/img_2.jpg" alt="Image" class="img-fluid" />
+                <img src="/static/assets/images/img_3.jpg" alt="Image" class="img-fluid" />
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@
             <div class="d-block agent-box p-5">
               <div class="img mb-4">
                 <img
-                  src="images/person_2-min.jpg"
+                  src="/static/assets/images/person_2-min.jpg"
                   alt="Image"
                   class="img-fluid"
                 />
@@ -297,11 +297,12 @@
       </div>
     </div>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/tiny-slider.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/tiny-slider.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/navbar.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/counter.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/custom.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/register.js') }}"></script>
   </body>
 </html>

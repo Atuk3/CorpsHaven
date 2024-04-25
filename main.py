@@ -221,10 +221,15 @@ def standard():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for('home'))
-@app.route('/dashboard', methods=['GET', 'POST'])
-def dashboard():
-    return render_template('dashboard.html')
+    return redirect(url_for('login'))
+@app.route('/properties', methods=['GET', 'POST'])
+def properties():
+    return render_template('properties.html')
+
+@app.route('/singleproperty', methods=['GET', 'POST'])
+def singleproperty():
+    return render_template('property-single.html')
+
 @app.route('/test', methods=['GET', 'POST'])
 def test():
     if request.method == 'POST':
